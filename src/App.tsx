@@ -7,13 +7,15 @@ import { defaultTheme } from "./styles/themes/default";
 
 export function App() {
   return (
-    <BrowserRouter>
+    
       <ThemeProvider theme={defaultTheme}>
+        <BrowserRouter>
+      <GlobalStyle />
         <CyclesContextProvider>
           <Router />
         </CyclesContextProvider>
-        <GlobalStyle />
+        </BrowserRouter>
       </ThemeProvider>
-    </BrowserRouter>
+    
   );
 }

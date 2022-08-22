@@ -1,6 +1,6 @@
 import { HandPalm, Play } from "phosphor-react";
 import { FormProvider, useForm } from "react-hook-form";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   HomeContainer,
   StartCountdownButton,
@@ -8,7 +8,6 @@ import {
 } from "./styles";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
-import { differenceInSeconds } from "date-fns";
 import { NewCycleForm } from "./Components/NewCycleForm";
 import { Countdown } from "./Components/Countdown";
 import { CycleContext } from "../../contexts/CycleContext";
@@ -41,7 +40,7 @@ export function Home() {
    reset();
   }
   const task = watch("task");
-  const isSubmitDisabled = !task;
+  const isSubmitDisabled = !task.trim();
 
   return (
     <HomeContainer>

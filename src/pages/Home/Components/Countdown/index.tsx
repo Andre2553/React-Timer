@@ -1,5 +1,5 @@
 import { differenceInSeconds } from "date-fns";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CycleContext } from "../../../../contexts/CycleContext";
 
 import { CountdownContainer, Separator } from "./styles";
@@ -32,10 +32,7 @@ export function Countdown() {
       }, 1000);
     }
     return () => {
-      if(interval) {
         clearInterval(interval);
-      }
-      
     };
   }, [
     activeCycle,
@@ -55,13 +52,10 @@ export function Countdown() {
   useEffect(() => {
     if (activeCycle) {
       document.title = `${minutes}:${seconds}`;
-    }
-    else{
+    } else {
       document.title = "React-timer";
     }
-  }, [minutes, seconds, activeCycle]);
-
-  
+  }, [minutes, seconds, activeCycle,currentSeconds]);
 
   return (
     <CountdownContainer>

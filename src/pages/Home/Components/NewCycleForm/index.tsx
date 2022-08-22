@@ -18,7 +18,7 @@ export function NewCycleForm() {
         id="task"
         type="text"
         list="tasks-suggestions"
-        placeholder="Give a name for your project"
+        placeholder="name of the project"
         disabled={!!activeCycle}
         {...register("task")}
       />
